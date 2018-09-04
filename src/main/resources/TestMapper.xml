@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "F:\JB\src\main\resources\JB-1.0.0-mapper.dtd">
+<mapper namespace="cn.mj.TestMapper">
+    <select id="selectTestById" parameterType="int" resultType="JBTest.Test">
+      select * from test where id=@{id}
+    </select>
+    <select id="selectTest" resultType="JBTest.Test">
+        select * from test
+    </select>
+    <select id="selectTestByString" parameterType="map" resultType="JBTest.Test">
+        select * from test where name LIKE '%@{name}%'
+    </select>
+    <select id="selectTestByTestQuery" parameterType="JBTest.TestQuery" resultType="JBTest.Test">
+        select * from test where id=@{id} and name=@{name}
+    </select>
+</mapper>
